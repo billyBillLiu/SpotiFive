@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Playlist Generator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: rgb(24, 20, 20);
+            font-family: 'Montserrat', sans-serif;
+        }
+        h1 {
+            font-size: 4.5em;
+            color: white; /* Set the color of the title to white */
+            cursor: pointer;
+        }
+        a {
+            color: white; /* Set link color to white */
+            text-decoration: none; /* Remove underline */
+        }
+        input {
+            width: 450px; /* Set the width of the textarea */
+            padding: 15px 32px;
+            border-radius: 25px;
+            font-family: 'Montserrat', sans-serif;
+        }
+        button {
+            background-color: #1DB954; /* Green */
+            border: 5px;
+            border-color: black;
+            color: black;
+            padding: 15px 32px;
+            font-size: 16px;
+            font-weight: bold;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 25px;
+        }
+    </style>
+</head>
+<body>
+    <div style="text-align: center;">
+        <a href="/"><h1>SpotiFive</h1></a>
+        <form action="/generate_playlist" method="post" onsubmit="return validateForm()">
+            <input type="text" id="input_text" name="input_text" placeholder="Tell me about your day so far...">
+            <br><br>
+            <button type="submit">Create Playlist</button>
+        </form>
+        <br>
+    </div>
+
+    <script>
+        function validateForm() {
+            var inputText = document.getElementById("input_text").value.trim();
+            if (inputText === "") {
+                alert("Please enter something in the text box.");
+                return false; // Prevent form submission
+            }
+            return true; // Allow form submission
+        }
+    </script>
+</body>
+</html>
