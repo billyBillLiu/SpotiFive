@@ -4,4 +4,4 @@ Created using Flask and Python
 Dependencies:
   google-generativeai,
   flask,
-  flask-session,
+  flask-session
