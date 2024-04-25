@@ -13,18 +13,17 @@
         h1 {
             font-size: 4.5em;
             color: white; /* Set the color of the title to white */
+            cursor: pointer;
         }
         a {
             color: white; /* Set link color to white */
             text-decoration: none; /* Remove underline */
         }
-        /* Styling for visited links */
-        a:visited {
-            color: white; /* Set visited link color to white */
-        }
-        /* Styling for active links */
-        a:active {
-            color: white; /* Set active link color to white */
+        input {
+            width: 450px; /* Set the width of the textarea */
+            padding: 15px 32px;
+            border-radius: 25px;
+            font-family: 'Montserrat', sans-serif;
         }
         button {
             background-color: #1DB954; /* Green */
@@ -37,26 +36,52 @@
             margin: 4px 2px;
             cursor: pointer;
             border-radius: 25px;
-            display: block;
-            width: 350px;
-            margin: 10px auto;
         }
-        div {
-            text-align: center;
-            ;
-        }
-        p {
-            color: white;
-        }
+        img {
+            width: 75px;
+            height: 75px;
+        }  
     </style>
 </head>
 <body>
     <div style="text-align: center;">
-        <h1>SpotiFive</h1>
-            <a href="/ai_playlist_generator"><button class="button button1">Create a Playlist With Gemini AI</button></a>
-            <p>or</p>
-            <a href="/playlist_splitter"><button class="button button2">Split a Playlist by Genre</button></a>
+        <a href="/"><h1>SpotiFive</h1></a>
+        <form action="/generate_playlist" method="post" onsubmit="return validateForm()">
+            <input type="text" id="input_text" name="input_text" placeholder="Tell me about your day so far...">
+            <br><br>
+            <button type="submit">Create Playlist</button>
+        </form>
         <br>
+        <div id="loading" style="display: none;">
+            <img src="/static/loading_circle.gif">
+        </div>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        // Script for preventing empty submissions
+        function validateForm() {
+            var inputText = document.getElementById("input_text").value.trim();
+            if (inputText === "") {
+                alert("Please enter something in the text box.");
+                return false;
+            }
+            return true;
+        }
+    </script>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        // Script for revealing loading icon when form is submitted
+        $(document).ready(function(){
+            $('form').submit(function(){
+                $('#loading').show();
+            });
+    
+            $(window).on('load', function(){
+                $('#loading').hide();
+            });
+        });
+    </script>
 </body>
 </html>
