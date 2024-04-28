@@ -1,4 +1,4 @@
-This is a combination of SpotifySplitter and Gemini AI Playlist Generator.
+AI Playlist Generator. Uses Gemini AI.
 Created using Flask and Python
 
 Dependencies:
