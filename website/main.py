@@ -7,12 +7,12 @@ app = Flask(__name__)
 app.secret_key = "secret"
 
 SPOTIFY_CLIENT_ID = "4b3ee564403d4f949f881d65692a0e57"
-SPOTIFY_CLIENT_SECRET = "83eb71d8880e46e3a53e6052e319f3cc"
+SPOTIFY_CLIENT_SECRET = "xxx"
 SPOTIFY_REDIRECT_URI = "http://127.0.0.1:5000/callback"
 SCOPES = ['playlist-modify-private', 'playlist-modify-public', 'ugc-image-upload']
 SCOPES_URL = "%20".join(SCOPES)
 
-GEMINI_API_KEY = "AIzaSyCqZiA0pNqc52G7BZiSW2MkEtk_s7pa85U"
+GEMINI_API_KEY = "xxx"
 MODEL_NAME = "gemini-pro"
 genai.configure(api_key=GEMINI_API_KEY)
 model = genai.GenerativeModel(model_name=MODEL_NAME)
